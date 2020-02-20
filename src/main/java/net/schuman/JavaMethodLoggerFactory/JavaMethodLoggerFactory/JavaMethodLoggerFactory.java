@@ -22,7 +22,9 @@ public class JavaMethodLoggerFactory implements IMethodLoggerFactory<JavaMethodL
 	}
 
 	/**
-	 * Creates a method logger
+	 * Creates a method logger.
+	 * @param methodName 			The name of the method to be logged.
+	 * @return The method logger
 	 */
 	public JavaMethodLogger createMethodLogger(String methodName) {
 		methodLogger = new JavaMethodLogger(logger, className, methodName); 
@@ -45,6 +47,11 @@ public class JavaMethodLoggerFactory implements IMethodLoggerFactory<JavaMethodL
 		this.className = className;
 	}
 
+	/**
+	 * Creates a method logger and then log the entry of the method.
+	 * @param methodName			The name of the method to be logged.
+	 * @return The method logger
+	 */
 	public JavaMethodLogger createMethodLoggerAndLogEntry(String methodName) {
 		createMethodLogger(methodName);
 		logEntryOfMethodLogger();
